@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teaching SaaS Platform 🎓
 
-## Getting Started
+A modern, interactive teaching platform that connects students with AI-powered educational companions for personalized learning experiences.
 
-First, run the development server:
+![Screenshot](/ss.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview 🌟
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Teaching SaaS is a Next.js-based platform that leverages AI to create interactive learning sessions. It provides a seamless interface for students to engage with AI companions specialized in various subjects, making learning more engaging and personalized.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features ✨
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🤖 **AI Companions**: Interactive AI tutors specialized in different subjects
+- 🎯 **Subject Specialization**: Dedicated companions for various academic subjects
+- 🎙️ **Voice Interaction**: Natural voice-based conversations with AI companions
+- 📝 **Real-time Transcripts**: Live transcription of learning sessions
+- 🎨 **Customizable Styles**: Different teaching styles to match learning preferences
+- 📊 **Session History**: Track and review past learning sessions
+- 🔒 **Secure Authentication**: Protected user sessions with Clerk
+- 📱 **Responsive Design**: Seamless experience across all devices
 
-## Learn More
+## Tech Stack ��️
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Authentication**: [Clerk](https://clerk.com/)
+- **Database**: [Supabase](https://supabase.com/)
+- **Voice AI**: [Vapi.ai](https://vapi.ai/)
+- **Sentry**: [Sentry](https://sentry.io/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animation**: [Lottie](https://lottiefiles.com/)
+- **Deployment**: [Vercel](https://vercel.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Prerequisites 📋
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js 18.x or later
+- npm or yarn
+- A Clerk account for authentication
+- A Supabase account for database
+- A Vapi.ai account for voice AI
+- A Sentry account for error tracking
 
-## Deploy on Vercel
+## Getting Started 🚀
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/paulustimothy/learning-saas-app.git
+   cd teaching-saas
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file with the following variables:
+
+   ```env
+   # Clerk
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+   CLERK_SECRET_KEY=
+
+   # Clerk - Custom auth
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+    NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=
+    NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=
+
+   # Supabase
+   NEXT_PUBLIC_SUPABASE_URL=
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+   # Vapi
+   NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_public_api_key
+
+   # Sentry
+   SENTRY_AUTH_TOKEN=
+   ```
+
+4. **Run Sentry wizard to install Sentry**
+
+   # Go to this url https://sentry.io/onboarding
+
+5. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Contributing 🤝
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Acknowledgments 🙏
+
+- [JavaScriptMastery](https://github.com/adrianhajdin) for inspiration and guidance
