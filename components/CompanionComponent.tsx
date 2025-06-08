@@ -85,14 +85,6 @@ const CompanionComponent = ({
     };
   }, []);
 
-  useEffect(() => {
-    console.log("Current messages:", messages);
-  }, [messages]);
-
-  useEffect(() => {
-    console.log("Call status:", callStatus);
-  }, [callStatus]);
-
   const toggleMic = () => {
     const isMuted = vapi.isMuted();
     vapi.setMuted(!isMuted);
