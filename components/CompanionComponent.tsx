@@ -6,6 +6,7 @@ import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import soundwaves from "@/constants/soundwaves.json";
+import { addSessionHistory } from "@/lib/action/companion.actions";
 
 enum CallStatus {
   INACTIVE = "INACTIVE",
@@ -25,11 +26,8 @@ const CompanionComponent = ({
   userImage,
 }: CompanionComponentProps) => {
   const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE);
-
   const [isSpeaking, setIsSpeaking] = useState(false);
-
   const [isMuted, setIsMuted] = useState(false);
-
   const [messages, setMessages] = useState<SavedMessage[]>([]);
 
   const lottieRef = useRef<LottieRefCurrentProps>(null);
@@ -47,9 +45,13 @@ const CompanionComponent = ({
   useEffect(() => {
     const onCallStart = () => setCallStatus(CallStatus.ACTIVE);
 
-    const onCallEnd = () => setCallStatus(CallStatus.FINISHED);
+    const onCallEnd = () => {
+      setCallStatus(CallStatus.FINISHED);
+      addSessionHistory(companionId);
+    };
 
     const onMessage = (message: Message) => {
+      console.log("message: ", message);
       if (message.type === "transcript" && message.transcriptType === "final") {
         const newMessage = { role: message.role, content: message.transcript };
         setMessages((prev) => [newMessage, ...prev]);
@@ -83,6 +85,14 @@ const CompanionComponent = ({
     };
   }, []);
 
+  useEffect(() => {
+    console.log("Current messages:", messages);
+  }, [messages]);
+
+  useEffect(() => {
+    console.log("Call status:", callStatus);
+  }, [callStatus]);
+
   const toggleMic = () => {
     const isMuted = vapi.isMuted();
     vapi.setMuted(!isMuted);
@@ -108,7 +118,7 @@ const CompanionComponent = ({
   };
 
   return (
-    <section className="flex flex-col h-[70vh]">
+    <section className="flex flex-col h-[100vh]">
       <section className="flex gap-8 max-sm:flex-col">
         <div className="companion-section">
           <div
