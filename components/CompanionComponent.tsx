@@ -51,7 +51,6 @@ const CompanionComponent = ({
     };
 
     const onMessage = (message: Message) => {
-      console.log("message: ", message);
       if (message.type === "transcript" && message.transcriptType === "final") {
         const newMessage = { role: message.role, content: message.transcript };
         setMessages((prev) => [newMessage, ...prev]);
